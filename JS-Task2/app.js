@@ -7,15 +7,15 @@ let stopTime = true;
 const reset = document.querySelector("#reset");
 const start = document.querySelector("#start");
 const timer = document.querySelector("#time-display");
-
+const pause = document.querySelector("#pause");
 
 //Start the timer
 start.addEventListener("click", function () {
-    if (stopTime == true) {
-      stopTime = false;
-      initClock();
-    }
-  });
+  if (stopTime == true) {
+    stopTime = false;
+    initClock();
+  }
+});
 //use this function to start the timer
 function initClock() {
   if (stopTime == false) {
@@ -59,10 +59,11 @@ function stopClock() {
 }
 // stop and clear the timer
 reset.addEventListener("click", function () {
-  if (stopTime == false) {
-    stopTime = true;
-    stopClock();
-  }
+  stopTime = true;
+  stopClock();
 });
 
-
+// pause the timer
+pause.addEventListener("click", function () {
+  stopTime = true;
+});
